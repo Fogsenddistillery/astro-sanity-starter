@@ -19,6 +19,7 @@ export const sanityConfig: ClientConfig = {
     apiVersion: '2024-01-31',
     token: SANITY_TOKEN,
     perspective: isDev || isDeployPreview || previewDrafts ? 'previewDrafts' : 'published'
+    studioBasePath: '/studio' // If you want to access the Studio on a route
 };
 
 export const client = createClient(sanityConfig);
