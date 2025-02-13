@@ -13,6 +13,7 @@ export default defineConfig({
         tailwind({
             applyBaseStyles: false
         })
+        studioBasePath: '/studio' // If you want to access the Studio on a route
     ],
     vite: {
         server: {
