@@ -3,6 +3,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadEnv } from 'vite';
 import { createClient, type ClientConfig, type SanityClient } from '@sanity/client';
+import { defineConfig } from "astro/config";
+import sanity from "@sanity/astro";
+import react from "@astrojs/react";
 
 const { SANITY_PROJECT_ID, SANITY_DATASET, SANITY_TOKEN, STACKBIT_PREVIEW, SANITY_PREVIEW_DRAFTS } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '');
 const isDev = import.meta.env.DEV;
@@ -19,7 +22,7 @@ export const sanityConfig: ClientConfig = {
     apiVersion: '2024-01-31',
     token: SANITY_TOKEN,
     perspective: isDev || isDeployPreview || previewDrafts ? 'previewDrafts' : 'published'
-    studioBasePath: '/studio', // If you want to access the Studio on a route
+    studioBasePath: '/studio' // If you want to access the Studio on a route
 };
 
 export const client = createClient(sanityConfig);
