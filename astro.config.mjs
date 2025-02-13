@@ -10,6 +10,7 @@ export default defineConfig({
     },
     integrations: [
         sanity(sanityConfig),
+        sanity({studioBasePath: '/studio' // If you want to access the Studio on a route}),
         tailwind({
             applyBaseStyles: false
         })
